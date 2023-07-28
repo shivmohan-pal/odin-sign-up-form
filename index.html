@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Odin - Signup Form</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="picture">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="32"
+                        d="M256 400v64M256 208v64M256 48v32M416 208H102.63a16 16 0 01-11.32-4.69L32 144l59.31-59.31A16 16 0 01102.63 80H416a16 16 0 0116 16v96a16 16 0 01-16 16zM96 400h313.37a16 16 0 0011.32-4.69L480 336l-59.31-59.31a16 16 0 00-11.32-4.69H96a16 16 0 00-16 16v96a16 16 0 0016 16z" />
+                </svg>
+                <h1>Signup</h1>
+            </div>
+            <p class="image-credit">Photo by <a
+                    href="https://unsplash.com/@arthurjames30?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Arthur
+                    James</a> on <a
+                    href="https://unsplash.com/photos/foFCozhmgZo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+            </p>
+        </div>
+        <div class="form-box">
+            <p>This is not a real online service! You know you need something like this in your life to help you
+                realize your deeepest dreams.
+                <br>Sign up <em>now</em> to get started.<br><br>
+                You <em>know</em> you want to.
+            </p>
+            <form action="#" method="POST">
+                <div>
+                    <h2>Let's do this!</h1>
+                        <div>
+                            <div>
+                                <label for="first-name">First Name</label>
+                                <input placeholder="first name" type="text" id="first-name" name="fist_name"
+                                    pattern="[A-Za-z]{3,32}" required>
+                                <span class="invalid pattern">Length should be 3 or > 3</span>
+                            </div>
+                            <div>
+                                <label for="last-name">Last Name</label>
+                                <input placeholder="last name" type="text" id="last-name" name="last_name"
+                                    pattern="[A-Za-z]{3,32}" minlength="3" required>
+                                <span class="invalid pattern">Length should be 3 or > 3</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="eamil-id">Email</label>
+                                <input placeholder="email id" type="email" id="email-id" name="email" required>
+                                <span class="invalid pattern">Enter valid eamil-id</span>
+                            </div>
+                            <div>
+                                <label for="phone-number">Phone Number</label>
+                                <input placeholder="phone number" type="tel" id="phone-number" name="phone_number"
+                                    pattern="[0-9]{10}" minlength="10">
+                                <span class="invalid pattern">Enter valid phone-no.</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="password">Password</label>
+                                <input placeholder="password" type="password" id="password" name="password"
+                                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" minlength="8" required>
+                                <span class="invalid pattern">1x(Upper, lowerCase & number)</span>
+                            </div>
+                            <div>
+                                <label for="confirm-password">Confirm Password</label>
+                                <input placeholder="confirm password" type="password" id="confirm-password"
+                                    name="confirm_password" required>
+                                <span class="invalid pattern">Passwords do not match</span>
+                            </div>
+                        </div>
+                </div>
+                <button type="submit">Create Account</button>
+                <p>Already have a account?<a href="">Log in</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    var passInput = document.querySelector("#password");
+    passInput.value = '';
+    passInput.addEventListener('change', function () {
+        document.querySelector("#confirm-password").setAttribute("pattern", this.value);
+    });
+</script>
+
+</html>

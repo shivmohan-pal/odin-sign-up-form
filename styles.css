@@ -1,0 +1,226 @@
+:root {
+    --primary-color: rgb(38, 38, 38);
+    --secondary-color: rgb(253, 145, 102);
+    --bacground-color: rgb(6, 6, 6);
+    --dim-background-color: rgba(6, 6, 6, 0.6);
+    --black-color: rgb(6, 6, 6);
+    --white-color: rgb(211, 204, 204);
+    --text-color: var(--white-color);
+    --blue-color: rgb(11, 135, 218);
+    --invalid-color: rgb(231, 115, 38);
+    --valid-color: greenyellow;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    position: relative;
+}
+
+body {
+    position: relative;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container {
+    background-color: var(--primary-color);
+    position: relative;
+    min-height: 100vh;
+    min-width: 100%;
+}
+
+.picture {
+    background-image: url("./images/signup-image.jpg");
+    background-size: auto 100%;
+    position: relative;
+    font-size: 1rem;
+    width: 40%;
+    min-height: inherit;
+}
+
+.logo *,
+.container>div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.logo {
+    background-color: var(--dim-background-color);
+    color: var(--white-color);
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 25%;
+    padding: 1em;
+}
+
+.picture svg {
+    width: 3em;
+    height: 3em;
+}
+
+.image-credit {
+    color: var(--white-color);
+    position: absolute;
+    width: 100%;
+    font-size: 0.8rem;
+    text-align: center;
+    text-shadow: 0px 0px 0.05rem black;
+    bottom: 8px;
+}
+
+.image-credit a {
+    color: inherit;
+}
+
+.form-box {
+    width: 59%;
+    padding: 0px 0.7rem;
+    color: var(--white-color);
+}
+
+.form-box>p {
+    font-size: 1.4rem;
+    margin: 0 auto 2rem;
+}
+
+form h2 {
+    margin: 1rem auto;
+}
+
+form>div>div>div {
+    position: relative;
+    display: inline-block;
+}
+
+form>div>div>div:first-child {
+    margin-right: 1rem;
+}
+
+.invalid {
+    position: absolute;
+    font-size: 0.8rem;
+    bottom: 0.5rem;
+    color: var(--invalid-color);
+    display: none;
+}
+
+.invalid::before {
+    content: "*";
+}
+
+input {
+    display: block;
+    margin-top: 6px;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--white-color);
+    border-radius: 0.2rem;
+    padding: 0.5em 0.5em;
+    font-size: 1rem;
+    width: max(25vw, 200px);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--blue-color);
+}
+
+input:invalid:not(:placeholder-shown) {
+    border-color: var(--invalid-color);
+}
+
+input[required]:valid:not(placeholder-shown) {
+    border-color: var(--valid-color);
+}
+
+input:invalid:not(:placeholder-shown)+.pattern {
+    display: inline-block;
+}
+
+input:valid:not(:placeholder-shown)+.pattern {
+    display: none;
+}
+
+input[required]:empty+.required {
+    display: inline-block;
+}
+
+form button {
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.6em 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+form button:hover {
+    opacity: 1;
+}
+
+form button:active {
+    opacity: 0.8;
+}
+
+form p,
+form button {
+    margin-top: 1.5em;
+}
+
+form p a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+::selection {
+    background-color: var(--secondary-color);
+    color: black;
+}
+
+
+@media screen and (max-width: 600px) {
+    .container>div {
+        display: block;
+    }
+
+    .picture {
+        background-size: 100% auto;
+        width: 100%;
+        min-height: 20vh;
+    }
+
+    .form-box {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .form-box p {
+        margin-top: 1rem
+    }
+
+    form>div>div>div:first-child {
+        margin: 0;
+    }
+
+    form>div>div>div {
+        margin: 0 4px;
+        text-align: left;
+    }
+
+    .image-credit {
+        text-align: right;
+        bottom: 0;
+        font-size: 0.6rem;
+    }
+
+    #confirm-password {
+        margin-bottom: 0;
+    }
+}
